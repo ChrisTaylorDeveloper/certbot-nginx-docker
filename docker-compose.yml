@@ -1,15 +1,17 @@
 services:
-  webserver:
+  nginx:
     image: nginx
     ports:
       - 80:80
-      # - 443:443
+      - 443:443
     volumes:
       - ./acme-challenge.conf:/etc/nginx/conf.d/acme-challenge.conf
       - certbot_www:/var/www/certbot
       - certbot_conf:/etc/nginx/ssl
+
   certbot:
-    image: certbot/certbot
+    # Certbot with its plugin for doing DNS challenges using DigitalOcean.
+    image: certbot/dns-digitalocean
     volumes:
       - certbot_www:/var/www/certbot
       - certbot_conf:/etc/letsencrypt
