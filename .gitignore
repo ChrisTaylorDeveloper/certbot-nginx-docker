@@ -1,4 +1,4 @@
 .env
 docker-compose.override.yml
 service-nginx/dhparam/dhparam-2048.pem
-compose-override.yaml
+compose.override.yaml
