@@ -1,14 +1,4 @@
 services:
-  nginx:
-    image: nginx
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./acme-challenge.conf:/etc/nginx/conf.d/acme-challenge.conf
-      - certbot_www:/var/www/certbot
-      - certbot_conf:/etc/nginx/ssl
-
   certbot:
     image: certbot/certbot
     volumes:
@@ -16,6 +6,3 @@ services:
       - certbot_conf:/etc/letsencrypt
     command: certonly --dry-run --webroot --webroot-path=/var/www/html --email chris@christaylordeveloper.co.uk --agree-tos --no-eff-email --force-renewal -d editions.christaylordeveloper.co.uk
 
-volumes:
-  certbot_www:
-  certbot_conf:
