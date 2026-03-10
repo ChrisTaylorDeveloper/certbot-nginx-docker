@@ -6,15 +6,15 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - certbot_www:/var/www/html
+      - certbot_www:/var/www/certbot
       - certbot_conf:/etc/letsencrypt
 
   certbot:
     image: certbot/certbot
     volumes:
-      - certbot_www:/var/www/html
+      - certbot_www:/var/www/certbot
       - certbot_conf:/etc/letsencrypt
-    command: certonly --webroot --webroot-path=/var/www/html --email chris@christaylordeveloper.co.uk --agree-tos --no-eff-email --force-renewal -d editions.christaylordeveloper.co.uk
+    command: certonly --webroot --webroot-path=/var/www/certbot --email chris@christaylordeveloper.co.uk --agree-tos --no-eff-email --force-renewal -d editions.christaylordeveloper.co.uk
 
 volumes:
   certbot_www:
