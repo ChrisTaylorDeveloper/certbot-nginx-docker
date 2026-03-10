@@ -1,0 +1,5 @@
+
+FROM nginx:1.29.2
+
+COPY fake-fullchain.pem /etc/letsencrypt/live/editions.christaylordeveloper.co.uk/fullchain.pem
+COPY fake-privkey.pem   /etc/letsencrypt/live/editions.christaylordeveloper.co.uk/privkey.pem
