@@ -15,7 +15,7 @@ services:
     volumes:
       - certbot_www:/var/www/html
       - certbot_conf:/etc/letsencrypt
-    command: certonly --webroot --webroot-path=/var/www/html --email chris@christaylordeveloper.co.uk --agree-tos --no-eff-email --force-renewal -d editions.christaylordeveloper.co.uk
+    command: certonly --dry-run --webroot --webroot-path=/var/www/html --email chris@christaylordeveloper.co.uk --agree-tos --no-eff-email --force-renewal -d editions.christaylordeveloper.co.uk
 
 volumes:
   certbot_www:
