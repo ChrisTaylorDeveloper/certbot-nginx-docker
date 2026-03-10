@@ -16,7 +16,7 @@ docker compose up --build -d nginx
 docker compose ps
 
 # delete dir of fake certs, otherwise certbot will fail at next step
-docker compose exec nginx rm -rf /etc/letsencrypt/live/editions.christaylordeveloper.co.uk/
+docker compose exec nginx rm -rf /etc/letsencrypt/live/edition.christaylordeveloper.co.uk/
 
 # run up certbot container too, should get real certs
 docker compose run --build certbot
