@@ -25,4 +25,5 @@ docker compose run --build certbot
 docker compose restart nginx
 
 # Check if domain has TLS
+sleep 5
 curl https://edition.christaylordeveloper.co.uk
