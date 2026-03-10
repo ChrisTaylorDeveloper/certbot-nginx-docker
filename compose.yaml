@@ -7,7 +7,7 @@ services:
     volumes:
       - ./acme-challenge.conf:/etc/nginx/conf.d/acme-challenge.conf
       - certbot_www:/var/www/certbot
-      - certbot_conf:/etc/nginx/ssl
+      - certbot_conf:/etc/letsencrypt
 
   certbot:
     image: certbot/certbot
