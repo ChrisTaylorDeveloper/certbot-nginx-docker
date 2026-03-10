@@ -6,7 +6,6 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ./acme-challenge.conf:/etc/nginx/conf.d/acme-challenge.conf
       - certbot_www:/var/www/html
       - certbot_conf:/etc/letsencrypt
 
