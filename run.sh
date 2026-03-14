@@ -18,6 +18,10 @@ docker compose run --build --rm certbot certonly --webroot -w /var/www/certbot -
 docker compose build --build-arg NGINX_CONF=production nginx
 docker compose up -d nginx
 
-# Check if domain has TLS
-# sleep 5
-# curl https://edition.christaylordeveloper.co.uk
+sleep 6
+
+# Should get a 301.
+curl --head http://edition.christaylordeveloper.co.uk
+
+# Should be fine.
+curl https://edition.christaylordeveloper.co.uk
