@@ -18,4 +18,6 @@ services:
 
 volumes:
   certbot_www:
+    name: certbot_www
   certbot_conf:
+    name: certbot_conf

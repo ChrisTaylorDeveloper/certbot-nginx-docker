@@ -5,8 +5,8 @@ docker compose down --remove-orphans
 docker compose down --remove-orphans
 
 # Make sure no volumes exist.
-docker volume rm --force letsencrypt-docker_certbot_conf
-docker volume rm --force letsencrypt-docker_certbot_www
+docker volume rm --force certbot_conf
+docker volume rm --force certbot_www
 
 # Start just the nginx service which
 # copies in fake cert and key (example.com).
