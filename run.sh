@@ -11,7 +11,8 @@ docker compose build --build-arg NGINX_CONF=certs-issue nginx
 docker compose up -d nginx
 
 # Now ask certbot to get certs.
-docker compose run --build --rm certbot certonly --webroot -w /var/www/certbot --force-renewal --email chris@christaylordeveloper.co.uk -d edition.christaylordeveloper.co.uk --agree-tos --no-eff-email
+# Remembe to remove --dry-run !
+docker compose run --build --rm certbot certonly --dry-run --webroot -w /var/www/certbot --force-renewal --email chris@christaylordeveloper.co.uk -d edition.christaylordeveloper.co.uk --agree-tos --no-eff-email
 
 # Build and run nginx service again but
 # this time with the production conf file.
