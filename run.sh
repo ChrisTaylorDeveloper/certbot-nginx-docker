@@ -1,27 +1,27 @@
 #!/bin/bash
 
+# Start with no services.
 docker compose down --remove-orphans
 
 # Make sure no volumes exist.
 docker volume rm --force certbot_conf
 docker volume rm --force certbot_www
 
-# Start just the nginx service which
-# copies in fake cert and key (example.com).
-docker compose up --build -d nginx
+# Build nginx service with minimal
+# conf required to get the certs.
+docker compose build --build-arg NGINX_CONF=certs-issue nginx
 
-# Check ngix, should be running OK.
+docker compose up -d nginx
+
+# Check ngix, is running OK.
 docker compose ps
 
-# Delete dir of fake certs, otherwise certbot will fail at next step.
-docker compose exec nginx rm -rf /etc/letsencrypt/live/edition.christaylordeveloper.co.uk/
-
-# Run-up certbot container too, should now get real certs.
+# Now add in certbot. Should try a dry run certs issue.
 docker compose run --build certbot
 
 # Restart nginx.
-docker compose restart nginx
+# docker compose restart nginx
 
 # Check if domain has TLS
-sleep 5
-curl https://edition.christaylordeveloper.co.uk
+# sleep 5
+# curl https://edition.christaylordeveloper.co.uk

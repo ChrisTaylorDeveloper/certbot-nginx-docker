@@ -1,5 +1,4 @@
 FROM nginx:1.29.2
 
-COPY fake-chain.pem /etc/letsencrypt/live/edition.christaylordeveloper.co.uk/fullchain.pem
-COPY fake-key.pem /etc/letsencrypt/live/edition.christaylordeveloper.co.uk/privkey.pem
-COPY acme-challenge.conf /etc/nginx/conf.d/acme-challenge.conf
+ARG NGINX_CONF=production
+COPY ${NGINX_CONF}.conf /etc/nginx/conf.d/${NGINX_CONF}.conf
