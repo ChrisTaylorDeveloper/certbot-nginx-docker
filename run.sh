@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Make sure compose is really, really down.
-docker compose down --remove-orphans
 docker compose down --remove-orphans
 
 # Make sure no volumes exist.
