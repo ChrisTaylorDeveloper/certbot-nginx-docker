@@ -17,7 +17,8 @@ docker compose up -d nginx
 docker compose ps
 
 # Now add in certbot. Should try a dry run certs issue.
-docker compose run --build certbot
+docker compose run --build --rm certbot \
+  certonly --dry-run --webroot -w /var/www/certbot --force-renewal --email chris@christaylordeveloper.co.uk -d edition.christaylordeveloper.co.uk --agree-tos --no-eff-email
 
 # Restart nginx.
 # docker compose restart nginx
